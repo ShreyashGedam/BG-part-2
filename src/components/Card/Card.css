@@ -1,0 +1,14 @@
+.card-container {
+    width: 300px;
+    height: 400px;
+    border: 1px solid;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+    text-align: center;
+}
+
+/* .card-container button {
+    position: absolute;
+    bottom: 10px;
+} */
