@@ -1,0 +1,91 @@
+1 - What is React? What are the advantages of using React?
+
+React is a front-end and open-source JavaScript library which is useful in developing user interfaces specifically for applications with a single page. It is helpful in building complex and reusable user interface(UI) components of mobile and web applications as it follows the component-based approach.
+
+The important features of React are:
+
+- It supports server-side rendering.
+- It will make use of the virtual DOM rather than real DOM (Data Object Model) as RealDOM manipulations are expensive.
+- It follows unidirectional data binding or data flow.
+- It uses reusable or composable UI components for developing the view.
+
+MVC is generally abbreviated as Model View Controller.
+
+- **Use of Virtual DOM to improve efficiency:** React uses virtual DOM to render the view. As the name suggests, virtual DOM is a virtual representation of the real DOM. Each time the data changes in a react app, a new virtual DOM gets created. Creating a virtual DOM is much faster than rendering the UI inside the browser. Therefore, with the use of virtual DOM, the efficiency of the app improves.
+- **Gentle learning curve:** React has a gentle learning curve when compared to frameworks like Angular. Anyone with little knowledge of javascript can start building web applications using React.
+- **SEO friendly:** React allows developers to develop engaging user interfaces that can be easily navigated in various search engines. It also allows server-side rendering, which boosts the SEO of an app.
+- **Reusable components:** React uses component-based architecture for developing applications. Components are independent and reusable bits of code. These components can be shared across various applications having similar functionality. The re-use of components increases the pace of development.
+- **Huge ecosystem of libraries to choose from:** React provides you with the freedom to choose the tools, libraries, and architecture for developing an application based on your requirement.
+
+2 -  Creating react app from the official website.
+    npx create-react-app my-app 
+    Type the above in react to create a react app.
+    my-app is the naem of the app . You can name it anything.
+
+3 - Creating react app with vite - 
+   npm creating vite.
+   The ract app from the official website is very large around 350mb. While the one created with the vite is 
+   only 60 mb and it reload faster.
+
+4 - React file structure.
+    This is the one which we create form the vite app.
+    All the changes and files which we will be creting will be in the src folder.
+    main.jsx and App.jsx are our main files.
+    All the pages, components which we will be creting will be imported in the App.jsx.
+
+    function App() {
+    const { funcDecrement } = useContext(CartContext);
+
+    return (
+        <div>
+        <Navbar />
+        <Card />
+        <button onClick={funcDecrement}>outsude button</button>
+        </div>
+    );
+    }
+
+    This is the structure of any component in the react application. All the js for the functionality will
+    be written in the function before return. And all the html will be written in the return just like normal 
+    HTML.
+
+5 - React Component:
+
+    - A React component is a more advanced and reusable piece of code composed of one or more React elements.
+    - Components are the building blocks of a React application, and they can have their own state and lifecycle methods.
+    - Components can be either functional or class-based.
+    - They are reusable and modular, allowing you to organize your UI into independent and manageable pieces.
+
+6 - Explain React state and props.
+
+    In React, both state and props are fundamental concepts that allow you to manage and pass data within a 
+    component-based architecture. They serve distinct purposes but are essential for building dynamic and 
+    interactive user interfaces.
+
+    State - 
+    1. **Definition:**
+    - The state is a JavaScript object that represents the internal data of a component. It is managed and controlled by the component itself.
+    - Each component can have its own state, and changes to the state trigger a re-render of the component.
+    2. **Updating State:**
+        - State should be updated using the **`setState`** method to ensure React performs the necessary updates and triggers a re-render.
+        - **`setState`** is asynchronous and can take a function to ensure that the previous state is considered when updating.
+
+    Example of state - const [count,setCount] = useState(0)    
+
+    State is local to the component where it is defined. It cannot be directly accessed or modified by other components.
+
+    React Props - 
+    Definition:
+        Props (short for "properties") are used to pass data from a parent component to a child component.
+        Props are immutable, meaning that a child component cannot modify the values received via props.
+    Passing Props:
+        Parent components pass data to child components as attributes in JSX. For example:    
+        <ChildComponent name="John" age={25} />
+    Accessing Props:
+        In a functional component, props are accessed as an argument:   
+        function MyComponent(props) {
+            return <p>{props.message}</p>;
+        } 
+    Top-Down Data Flow:
+        - React follows a unidirectional data flow, where data is passed from parent components to child components through props.
+        - Changes in the parent component trigger updates to the child components.
