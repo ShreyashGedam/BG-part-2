@@ -89,3 +89,104 @@ MVC is generally abbreviated as Model View Controller.
     Top-Down Data Flow:
         - React follows a unidirectional data flow, where data is passed from parent components to child components through props.
         - Changes in the parent component trigger updates to the child components.
+
+7 - What are the different phases of the component lifecycle?
+
+    There are four different phases in the lifecycle of React component. They are:
+
+- **Initialization:** During this phase, React component will prepare by setting up the default props
+ and initial state for the upcoming tough journey.
+- **Mounting:** Mounting refers to putting the elements into the browser DOM. Since React uses VirtualDOM,
+ the entire browser DOM which has been currently rendered would not be refreshed. This phase includes the
+  lifecycle methods `componentWillMount` and `componentDidMount`.
+- **Updating:** In this phase, a component will be updated when there is a change in the state or props of a 
+component. This phase will have lifecycle methods like `componentWillUpdate`, `shouldComponentUpdate`, `render`, 
+and `componentDidUpdate`.
+- **Unmounting:** In this last phase of the component lifecycle, the component will be removed from the DOM or 
+will be unmounted from the browser DOM. This phase will have the lifecycle method named `componentWillUnmount`.
+
+8 - Rendering lists in React
+ 
+  It is just using arr.map to create component and rendeer it to dom. Reder the code to see the use of .map method
+  to render a array in DOM.
+
+9 - Event handeling in react.
+    ex - onClick , onSubmit, and onKeyPress, 
+
+const ClickExample = () => {
+  const handleClick = () => {
+    alert('Button clicked!');
+  };
+
+  return (
+    <button onClick={handleClick}>
+      Click Me
+    </button>
+  );
+};
+
+const SubmitExample = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault(); 
+    alert('Form submitted!');
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+
+const KeyPressExample = () => {
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      alert('Enter key pressed!');
+    }
+  };
+
+  return (
+    <input type="text" onKeyPress={handleKeyPress} />
+  );
+};
+
+
+10 - What are controlled vs uncontrolled components
+Controlled Components - Controlled components are components that do not maintain their own state. Instead, 
+the state is managed by React and passed down to the component via props. Like we use useState() to define them.
+
+ uncontrolled components - States which are controlled by DOM itself are colled uncontrolled components.
+ 
+ function handleSubmit(){
+    console.log(window.email.value)
+ }
+
+ <form onSubmit = handleSubmit() >
+    <input id = 'email'></input>
+    <input type = "submit"></input>
+</form>
+
+
+11 - Explain useEffect()
+
+The useEffect hook in React is a fundamental part of the React Hooks API, introduced in React 16.8. It allows you 
+to perform side effects in functional components. Side effects include data fetching, setting up subscriptions,
+ and manually changing the DOM. useEffect provides a way to manage these operations and ensures they are performed 
+ correctly in the lifecycle of a component.
+
+ useEffect(() => {
+  // Your side effect code here.
+
+  return () => {
+    // Cleanup code here (optional).
+  };
+}, [dependencies]);
+
+Effect Function: The first argument to useEffect is a function where you can put your side effect code. This 
+function is executed after the render is committed to the screen.
+
+Cleanup Function: This function is called whenever the component is unmounted from the DOM.
+
+Dependencies Array: The second argument to useEffect is an array of dependencies. The effect will only re-run 
+if one of the dependencies has changed since the last render. If this array is empty ([]), the effect will only 
+run once after the initial render. If omitted, the effect runs after every render.
